@@ -1,0 +1,11 @@
+bin/
+include/
+lib/
+local/
+man
+include/
+lib/
+*.pyc
+*~
+*.sqlite3
+.DS_Store
