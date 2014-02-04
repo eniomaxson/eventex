@@ -28,7 +28,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['.localhost', '127.0.0.1','177.195.23.127','enio-eventex.herokuapp.com','.herokuapp.com']
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1','.herokuapp.com']
 
 
 # Application definition
