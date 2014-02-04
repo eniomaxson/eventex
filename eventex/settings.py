@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).parent
 SECRET_KEY = '4mo6u)!(v&w34k!dykw9l-j4w53213qbcuhdcrx@%n9bhc8%pl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
