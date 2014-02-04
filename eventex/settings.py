@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 """
 Django settings for eventex project.
 
@@ -80,13 +80,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-
 STATIC_ROOT = BASE_DIR.child('staticfiles')
 STATIC_URL = '/static/'
 
-# Usar o South para preparar o banco nos testes?
-# True: Sim. (default)
-# False: Não! Use o Syncdb
+
 SOUTH_TESTS_MIGRATE = False
