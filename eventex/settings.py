@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).parent
 SECRET_KEY = '4mo6u)!(v&w34k!dykw9l-j4w53213qbcuhdcrx@%n9bhc8%pl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -80,7 +80,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_ROOT = BASE_DIR.child('staticfiles')
+DATE_FORMAT = 'd/m/Y'
+
+#STATIC_ROOT = BASE_DIR.child('staticfiles')
 STATIC_URL = '/static/'
 
 

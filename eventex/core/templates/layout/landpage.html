@@ -1,0 +1,535 @@
+{% extends "layout/main.html" %}
+{% block title %} Eventex {% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,700,700italic">
+<link rel="stylesheet" href="{{STATIC_URL}}/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{STATIC_URL}}/fonts/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{STATIC_URL}}/css/form-elements.css">
+
+<link rel="stylesheet" href="{{STATIC_URL}}/css/style.css">
+<link rel="stylesheet" href="{{STATIC_URL}}/css/media-queries.css">
+
+<link rel="shortcut icon" href="assets/ico/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{STATIC_URL}}/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{STATIC_URL}}/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{STATIC_URL}}/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="{{STATIC_URL}}/ico/apple-touch-icon-57-precomposed.png">
+
+{% endblock %}
+
+{%block  menu %}
+<!-- Top menu -->
+<nav>
+    <a class="menu-top" href="">Top</a>
+    <a class="menu-subscribe" href="">Inscrições</a>
+  <!--  <a class="menu-project" href="">O projeto</a>
+    <a class="menu-testimonials" href="">Testemunhas</a> 
+    <a class="menu-about-us" href="">Sobre</a>-->
+    <a class="menu-contact" href="">Contato</a>
+    <div class="hide-menu">
+        <a href="" rel="tooltip" data-placement="bottom" data-original-title="Hide menu">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</nav>
+<div class="show-menu">
+    <a href="" rel="tooltip" data-placement="bottom" data-original-title="Show menu">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="coming-soon">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="logo">
+                        <h1><a href="/">Eventex</a></h1>
+                    </div>
+                    <h2>eventeX</h2>
+                    <p>
+                        Contagem regressiva para o maior evento do ano !
+                    </p>
+                    <div class="timer">
+                        <div class="days-wrapper">
+                            <span class="days"></span> <br>days
+                        </div>
+                        <div class="hours-wrapper">
+                            <span class="hours"></span> <br>hours
+                        </div>
+                        <div class="minutes-wrapper">
+                            <span class="minutes"></span> <br>minutes
+                        </div>
+                        <div class="seconds-wrapper">
+                            <span class="seconds"></span> <br>seconds
+                        </div>
+                    </div>
+                    <p class="top-arrow">
+                        <i class="fa fa-chevron-down"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subscription form -->
+<div class="container">
+    <div class="row">
+        <div class="span12 subscribe">
+            <h3>Inscrições!</h3>
+            <p>Inscrições abertas no próximo domingo.</p>
+            <!--
+            <form class="form-inline" action="#" method="post">
+                <input type="text" name="email" placeholder="Enter your email...">
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+            <div class="success-message"></div>
+            <div class="error-message"></div>
+            -->
+        </div>
+    </div>
+</div>
+
+<!-- About the new site 
+<div class="about-container">
+    <div class="container">
+        <div class="row">
+            <div class="span12 about">
+                <h3>About the new site</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 about-box-1">
+                <div class="about-box-1-icon">
+                    <i class="fa fa-eye"></i>
+                </div>
+                <h4>New Features</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                    labore et.
+                </p>
+            </div>
+            <div class="span4 about-box-1">
+                <div class="about-box-1-icon">
+                    <i class="fa fa-table"></i>
+                </div>
+                <h4>Responsive Layout</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                    labore et.
+                </p>
+            </div>
+            <div class="span4 about-box-1">
+                <div class="about-box-1-icon">
+                    <i class="fa fa-pencil"></i>
+                </div>
+                <h4>Flat Design</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                    labore et.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials 
+<div class="container">
+    <div class="row">
+        <div class="span12 testimonials">
+            <h3>What our clients say</h3>
+            <div class="testimonial-active"></div>
+            <div class="testimonial-quote">&ldquo; &rdquo;</div>
+            <div class="testimonial-single">
+                <p>
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+                    lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, 
+                    quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
+                    <br>
+                    <a href="">John Doe, johndoe.com</a>
+                </p>
+                <div class="testimonial-single-image">
+                    <img src="{{ STATIC_URL }}/img/testimonials/1.jpg" alt="">
+                </div>
+            </div>
+            <div class="testimonial-single">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+                    ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                    incididunt ut labore et. Lorem ipsum dolor sit amet.
+                    <br>
+                    <a href="">Jane Jonsson, blog.jane.com</a>
+                </p>
+                <div class="testimonial-single-image">
+                    <img src="{{STATIC_URL}}/img/testimonials/2.jpg" alt="">
+                </div>
+            </div>
+            <div class="testimonial-single">
+                <p>
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+                    lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, 
+                    quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
+                    <br>
+                    <a href="">John Doe, johndoe.com</a>
+                </p>
+                <div class="testimonial-single-image">
+                    <img src="{{STATIC_URL}}/img/testimonials/3.jpg" alt="">
+                </div>
+            </div>
+            <div class="testimonial-single">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+                    ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                    incididunt ut labore et. Lorem ipsum dolor sit amet.
+                    <br>
+                    <a href="">Jane Jonsson, blog.jane.com</a>
+                </p>
+                <div class="testimonial-single-image">
+                    <img src="{{STATIC_URL}}/img/testimonials/2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+-->
+<!--
+<div class="whos-behind-container">
+
+    <div class="container">
+        <div class="row">
+            <div class="span12 whos-behind">
+                <h3>Who's behind this</h3>
+                <p>
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+                    lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 whos-behind-box-1">
+                <div class="whos-behind-photo">
+                    <img src="{{STATIC_URL}}/img/team/1.jpg" alt="">
+                    <div class="whos-behind-social">
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href=""><i class="fa fa-linkedin"></i></a>
+                        <a href=""><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+                <h4>John Doe</h4>
+                <h5>Developer</h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                    labore et.
+                </p>
+            </div>
+            <div class="span4 whos-behind-box-1">
+                <div class="whos-behind-photo">
+                    <img src="{{STATIC_URL}}/img/team/2.jpg" alt="">
+                    <div class="whos-behind-social">
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href=""><i class="fa fa-linkedin"></i></a>
+                        <a href=""><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+                <h4>Tim Brown</h4>
+                <h5>Founder</h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                    labore et.
+                </p>
+            </div>
+            <div class="span4 whos-behind-box-1">
+                <div class="whos-behind-photo">
+                    <img src="{{STATIC_URL}}/img/team/3.jpg" alt="">
+                    <div class="whos-behind-social">
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href=""><i class="fa fa-linkedin"></i></a>
+                        <a href=""><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+                <h4>Sarah Red</h4>
+                <h5>Designer</h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                    labore et.
+                </p>
+            </div>
+        </div>
+     Latest tweets 
+        <div class="row">
+            <div class="span12 latest-tweets">
+                <h4>Our Latest Tweets</h4>
+                <p class="tweet-active"></p>
+                <div class="tweets"></div>
+            </div>
+        </div>
+    </div>
+    
+</div>-->
+
+
+<div class="container">
+    <div class="row">
+        <div class="span12 contact">
+            <h3>Contate-nos</h3>
+            <p>
+                Para maiores informações, entre em contato ou venha nos visitar.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span7 contact-form">
+            <h4>Envie uma mensagem para nós.</h4>
+            <form method="post" action="#">
+                <input type="text" name="email" placeholder="Email..." class="contact-email">
+                <input type="text" name="subject" placeholder="Assunto..." class="contact-subject">
+                <textarea name="message" placeholder="Mensagem..."></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div class="span5 contact-address">
+            <h4>Visite-nos</h4>
+            
+            <h4>Endereço</h4>
+            <p><i class="fa fa-map-marker"></i>Avenida 6, Lago Nova, Natal-RN</p>
+            <p><i class="fa fa-phone"></i>Telefone: (84) 9901-0102</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="span7 footer-copyright">
+                <p>&copy; Eventex <br>  O seu evento é nossa prioridade!</p>
+            </div>
+            <div class="span5 footer-social">
+                <a class="ultm ultm-facebook ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+                <a class="ultm ultm-twitter ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+                <a class="ultm ultm-google-plus-1 ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+                <a class="ultm ultm-dribbble ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+                <a class="ultm ultm-pinterest ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}
+
+{% block js %}
+
+<script src="{{STATIC_URL}}/js/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}/js/jquery.backstretch.min.js"></script>
+<script src="{{STATIC_URL}}/js/jquery.countdown.min.js"></script>
+<script src="{{STATIC_URL}}/twitter/jquery.tweet.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="{{STATIC_URL}}/js/jquery.ui.map.min.js"></script>
+
+<script>
+
+
+    jQuery(document).ready(function() {
+
+    /*
+        Top menu
+        */
+        $('.show-menu a, .hide-menu a').tooltip();
+    // show/hide menu
+    $('.show-menu a').on('click', function(e) {
+        e.preventDefault();
+        $(this).fadeOut(100, function(){ $('nav').slideDown(); });
+    });
+    $('.hide-menu a').on('click', function(e) {
+        e.preventDefault();
+        $('nav').slideUp(function(){ $('.show-menu a').fadeIn(); });
+    });
+    // navigation
+    $('nav a').on('click', function(e) {
+        e.preventDefault();
+        var element_class = $(this).attr('class');
+        var scroll_to = 0;
+        var nav_height = $('nav').height();
+        if(element_class == 'menu-top') { scroll_to = $(".coming-soon").offset().top; }
+        else if(element_class == 'menu-subscribe') { scroll_to = $(".subscribe").offset().top - nav_height - 20; }
+        //else if(element_class == 'menu-project') { scroll_to = $(".about").offset().top - nav_height - 60; }
+        //else if(element_class == 'menu-testimonials') { scroll_to = $(".testimonials").offset().top - nav_height - 60; }
+       // else if(element_class == 'menu-about-us') { scroll_to = $(".whos-behind").offset().top - nav_height - 60; }
+        else if(element_class == 'menu-contact') { scroll_to = $(".contact").offset().top - nav_height - 10; }
+        
+        if($(window).scrollTop() != scroll_to && element_class !== undefined) {
+            $('html, body').animate({scrollTop: scroll_to}, 1000);
+        }
+    });
+
+    /*
+        Background slideshow
+        */
+        $('.coming-soon').backstretch([
+            "{{STATIC_URL}}/img/backgrounds/1.jpg"
+            , "{{STATIC_URL}}/img/backgrounds/2.jpg"
+            , "{{STATIC_URL}}/img/backgrounds/3.jpg"
+            ], {duration: 3000, fade: 750});
+
+        $('.about-container').backstretch("{{STATIC_URL}}/img/backgrounds/2.jpg");
+
+        $('.whos-behind-container').backstretch("{{STATIC_URL}}/img/backgrounds/4.jpg");
+
+    /*
+        Countdown initializer
+        */
+        var now = new Date();
+        var countTo = 1 * 12 * 60 * 60 * 1000 + now.valueOf();    
+        $('.timer').countdown(countTo, function(event) {
+            $(this).find('.days').text(event.offset.totalDays);
+            $(this).find('.hours').text(event.offset.hours);
+            $(this).find('.minutes').text(event.offset.minutes);
+            $(this).find('.seconds').text(event.offset.seconds);
+        });
+
+    /*
+        Testimonials
+        */
+        $('.testimonial-active').html('<p>' + $('.testimonial-single:first p').html() + '</p>');
+        $('.testimonial-single:first .testimonial-single-image img').css('opacity', '1');
+
+        $('.testimonial-single-image img').on('click', function() {
+            $('.testimonial-single-image img').css('opacity', '0.5');
+            $(this).css('opacity', '1');
+            var new_testimonial_text = $(this).parent('.testimonial-single-image').siblings('p').html();
+            $('.testimonial-active p').fadeOut(300, function() {
+                $(this).html(new_testimonial_text);
+                $(this).fadeIn(400);
+            });
+        });
+
+    /*
+        Show latest tweets
+        */
+        $('.latest-tweets .tweets').tweet({
+            modpath: 'assets/twitter/',
+            username: 'anli_zaimi',
+            page: 1,
+            count: 5,
+            loading_text: 'loading ...'
+        });
+
+        $('.latest-tweets .tweets .tweet_list li').append('<span class="tweet_nav"></span>');
+        $('.latest-tweets .tweets .tweet_list li:first .tweet_nav').css('background', '#e8643e');
+        $('.latest-tweets .tweets .tweet_list li .tweet_time').hide();
+        $('.latest-tweets .tweets .tweet_list li .tweet_text').hide();
+        $('.latest-tweets .tweet-active').html($('.latest-tweets .tweets .tweet_list li:first .tweet_text').html());
+
+        $('.latest-tweets .tweets .tweet_list li .tweet_nav').on('click', function() {
+            $('.latest-tweets .tweets .tweet_list li .tweet_nav').css('background', 'rgba(255, 255, 255, 0.6)');
+            var clicked_tweet_nav = $(this);
+            var new_tweet_text = clicked_tweet_nav.siblings('.tweet_text').html();
+            $('.latest-tweets .tweet-active').fadeOut(300, function() {
+                $(this).html(new_tweet_text);
+                $(this).fadeIn(400, function() {
+                // reload background
+                $('.whos-behind-container').backstretch("resize");
+            });
+            });
+            clicked_tweet_nav.css('background', '#e8643e');
+        });
+
+    /*
+        Google maps
+        */
+        var position = new google.maps.LatLng(45.067883, 7.687231);
+        $('.contact-address .map').gmap({'center': position, 'zoom': 15, 'disableDefaultUI':true, 'callback': function() {
+            var self = this;
+            self.addMarker({'position': this.get('map').getCenter() }); 
+        }
+    });
+
+    /*
+        Subscription form
+        */
+        $('.success-message').hide();
+        $('.error-message').hide();
+
+        $('.subscribe form').submit(function(e) {
+            e.preventDefault();
+            var postdata = $('.subscribe form').serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'assets/subscribe.php',
+                data: postdata,
+                dataType: 'json',
+                success: function(json) {
+                    if(json.valid == 0) {
+                        $('.success-message').hide();
+                        $('.error-message').hide();
+                        $('.error-message').html(json.message);
+                        $('.error-message').fadeIn();
+                    }
+                    else {
+                        $('.error-message').hide();
+                        $('.success-message').hide();
+                        $('.subscribe form').hide();
+                        $('.success-message').html(json.message);
+                        $('.success-message').fadeIn();
+                    }
+                }
+            });
+        });
+
+    /*
+        Contact form
+        */
+        $('.contact-form form input[type="text"], .contact-form form textarea').on('focus', function() {
+            $('.contact-form form input[type="text"], .contact-form form textarea').removeClass('contact-error');
+        });
+        $('.contact-form form').submit(function(e) {
+            e.preventDefault();
+            $('.contact-form form input[type="text"], .contact-form form textarea').removeClass('contact-error');
+            var postdata = $('.contact-form form').serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'assets/contact.php',
+                data: postdata,
+                dataType: 'json',
+                success: function(json) {
+                    if(json.emailMessage != '') {
+                        $('.contact-form form .contact-email').addClass('contact-error');
+                    }
+                    if(json.subjectMessage != '') {
+                        $('.contact-form form .contact-subject').addClass('contact-error');
+                    }
+                    if(json.messageMessage != '') {
+                        $('.contact-form form textarea').addClass('contact-error');
+                    }
+                    if(json.emailMessage == '' && json.subjectMessage == '' && json.messageMessage == '') {
+                        $('.contact-form form').fadeOut('fast', function() {
+                            $('.contact-form').append('<p>Thanks for contacting us! We will get back to you very soon.</p>');
+                        });
+                    }
+                }
+            });
+});
+
+
+});
+
+
+</script>
+
+{% endblock %}
