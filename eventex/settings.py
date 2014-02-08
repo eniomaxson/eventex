@@ -82,7 +82,7 @@ USE_TZ = True
 
 DATE_FORMAT = 'd/m/Y'
 
-#STATIC_ROOT = BASE_DIR.child('staticfiles')
+STATIC_ROOT = BASE_DIR.child('staticfiles')
 STATIC_URL = '/static/'
 
 
