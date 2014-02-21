@@ -1,0 +1,21 @@
+{% extends 'layout/main.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>Confirmação </h1>
+    </div>
+    <p class="text-info">Parabéns {{ subscription.name }},</p>
+    <p class="text-info">sua inscrição foi realizada em
+    {{ subscription.created_at|date:"d/m/Y" }}. </p>
+    
+    <p class="text-info">Em breve, entraremos em contato pelo
+    {% if subscription.phone %}
+    telefone {{ subscription.phone }}
+    {% else %}
+    e-mail {{ subscription.email }}
+    {% endif %}
+    </p>
+</div>
+
+{% endblock content %}

@@ -6,8 +6,13 @@
 	<meta charset="utf-8">
 	<title>{% block title %} Titilo {% endblock %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	{% block styles %}
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,700,700italic">
+	<link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}fonts/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
 
 	{% endblock %}
 
@@ -15,21 +20,123 @@
 
 <body>
 	{% block  menu %}
+	<!-- Top menu -->
+	<nav>
+		<a class="menu-top" href="/">Home</a>
+		<a class="menu-subscribe" href="/inscricao">Inscrições</a>
+  <!--  <a class="menu-project" href="">O projeto</a>
+    <a class="menu-testimonials" href="">Testemunhas</a> 
+    <a class="menu-about-us" href="">Sobre</a>-->
+    <div class="hide-menu">
+    	<a href="" rel="tooltip" data-placement="bottom" data-original-title="Hide menu">
+    		<i class="fa fa-bars"></i>
+    	</a>
+    </div>
+</nav>
+<div class="show-menu">
+	<a href="" rel="tooltip" data-placement="bottom" data-original-title="Show menu">
+		<i class="fa fa-bars"></i>
+	</a>
+</div>
+{% endblock %}
 
-	{% endblock %}
+{% block content %}
 
-	{% block content %}
-
-	{% endblock %}
-	
-	{% block footer %}
-
-	{% endblock %}
+{% endblock %}
 
 
-	{% block js %}
-	
-	{% endblock %}
+{% block footer %}
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="span7 footer-copyright">
+				<p>&copy; Eventex <br>  O seu evento é nossa prioridade!</p>
+			</div>
+			<div class="span5 footer-social">
+				<a class="ultm ultm-facebook ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+				<a class="ultm ultm-twitter ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+				<a class="ultm ultm-google-plus-1 ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+				<a class="ultm ultm-dribbble ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+				<a class="ultm ultm-pinterest ultm-48 ultm-square ultm-gray-to-color" href=""></a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+{% endblock %}
+
+{% block js %}
+
+<script src="{{STATIC_URL}}js/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}js/jquery.backstretch.min.js"></script>
+<script src="{{STATIC_URL}}js/jquery.countdown.min.js"></script>
+
+<script>
+
+
+	jQuery(document).ready(function() {
+
+    /*
+        Top menu
+        */
+    $('.show-menu a, .hide-menu a').tooltip();
+    // show/hide menu
+    $('.show-menu a').on('click', function(e) {
+    	e.preventDefault();
+    	$(this).fadeOut(100, function(){ $('nav').slideDown(); });
+    });
+    $('.hide-menu a').on('click', function(e) {
+    	e.preventDefault();
+    	$('nav').slideUp(function(){ $('.show-menu a').fadeIn(); });
+    });
+    // navigation
+    $('nav a').on('click', function(e) {
+    	var element_class = $(this).attr('class');
+    	var scroll_to = 0;
+    	var nav_height = $('nav').height();
+    	if(element_class == 'menu-top') { scroll_to = $(".coming-soon").offset().top; }
+        //else if(element_class == 'menu-subscribe') { scroll_to = $(".subscribe").offset().top - nav_height - 20; }
+        //else if(element_class == 'menu-project') { scroll_to = $(".about").offset().top - nav_height - 60; }
+        //else if(element_class == 'menu-testimonials') { scroll_to = $(".testimonials").offset().top - nav_height - 60; }
+       // else if(element_class == 'menu-about-us') { scroll_to = $(".whos-behind").offset().top - nav_height - 60; }
+        //else if(element_class == 'menu-contact') { scroll_to = $(".contact").offset().top - nav_height - 10; }
+        
+        if($(window).scrollTop() != scroll_to && element_class !== undefined) {
+        	$('html, body').animate({scrollTop: scroll_to}, 1000);
+        }
+    });
+
+    /*
+        Background slideshow
+        */
+        $('.coming-soon').backstretch([
+        	"{{STATIC_URL}}/img/backgrounds/1.jpg"
+        	, "{{STATIC_URL}}/img/backgrounds/2.jpg"
+        	, "{{STATIC_URL}}/img/backgrounds/3.jpg"
+        	], {duration: 3000, fade: 750});
+
+        $('.about-container').backstretch("{{STATIC_URL}}/img/backgrounds/2.jpg");
+
+        $('.whos-behind-container').backstretch("{{STATIC_URL}}/img/backgrounds/4.jpg");
+
+    /*
+        Countdown initializer
+        */
+        var now = new Date();
+        var countTo = 1 * 12 * 60 * 60 * 1000 + now.valueOf();    
+        $('.timer').countdown(countTo, function(event) {
+        	$(this).find('.days').text(event.offset.totalDays);
+        	$(this).find('.hours').text(event.offset.hours);
+        	$(this).find('.minutes').text(event.offset.minutes);
+        	$(this).find('.seconds').text(event.offset.seconds);
+        });
+
+    });
+
+</script>
+
+{% endblock %}
 
 </body>
 

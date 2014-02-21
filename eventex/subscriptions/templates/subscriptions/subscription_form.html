@@ -1,0 +1,47 @@
+{% extends 'layout/main.html' %}
+{% block content %}
+
+<br />
+
+<div class="container-fluid">
+  <div class="page-header">
+    <h1>Inscreva-se </h1>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-8">
+        <form action="." method="POST" class="form-horizontal">
+          {%  csrf_token %}
+
+          {% if form.non_field_errors %}
+          <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Verifique os pontos abaixo:</strong> {{ form.non_field_errors }}
+          </div>
+          {% endif %}
+          {% for field in form %}
+          
+          <div class="form-group{% if field.errors %} has-error has-feedback {% endif %}">
+            <label for="{{ field.id_for_label }}" class="col-sm-2 control-label">{{ field.label }} </label>
+            <div class="col-sm-4">
+             <input type="text" name="{{ field.name }}" id="{{ field.id }}" class="form-control" >
+             <span class="text-danger error"> {{field.errors}} </span>
+           </div>
+
+         </div>
+
+         {% endfor %}
+
+         <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-primary" value="Enviar!" class="button"> 
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %}

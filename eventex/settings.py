@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).parent
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4mo6u)!(v&w34k!dykw9l-j4w53213qbcuhdcrx@%n9bhc8%pl'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'eventex.core',
+    'eventex.subscriptions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,10 +62,7 @@ WSGI_APPLICATION = 'eventex.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': config(
-        'DATABASE_URL',
-        default='sqlite:///' + BASE_DIR.child('db.sqlite3'),
-        cast=db_url),
+    'default': config('DATABASE_URL',default='postgres://postgres:admin@localhost/eventex',cast=db_url),
 }
 
 # Internationalization
@@ -72,7 +70,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'pt-BR'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'America/Recife'
 
 USE_I18N = True
 
@@ -83,6 +81,7 @@ USE_TZ = True
 DATE_FORMAT = 'd/m/Y'
 
 STATIC_ROOT = BASE_DIR.child('staticfiles')
+
 STATIC_URL = '/static/'
 
 
