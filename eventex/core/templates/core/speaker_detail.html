@@ -1,0 +1,14 @@
+{% extends 'layout/main.html' %}
+
+{% block content %}
+<br />
+
+<div class="container-fluid">
+  <div class="page-header">
+  	<h3>Palestrante</h3>
+  </div>
+	
+	<h4><a href="{{ speaker.url }}">{{ speaker.name }}</a></h4>
+	<p>{{ speaker.description }}</p>
+</div>
+{% endblock content %}
