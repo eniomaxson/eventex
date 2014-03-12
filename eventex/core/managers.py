@@ -15,7 +15,7 @@ class KindContactManager(models.Manager):
 class PeriodManager(models.Manager):
 	midday = time(12)
 	
-	def at_morning(self):
+	def at_morning	(self):
 		qs = self.filter(start_time__lt=self.midday)
 		qs = qs.order_by('start_time')
 		return qs
