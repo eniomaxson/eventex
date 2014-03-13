@@ -1,19 +1,17 @@
 {% extends 'layout/main.html' %}
+
 {% load youtube %}
 
+{% block page_header %} {{talk.title}}  {% endblock %}
+
 {% block content %}
+	{% for speaker in talk.speakers.all %}
+<h4><a href="{{ speaker.get_absolute_url }}" title="{{ speaker.description|truncatewords:20 }}"> {{ speaker.name }} </a> </h4>
+	{% endfor %}
+	<hr />
+	<p>{{ talk.description }}</p>
+	{% for video in talk.videos %}
+		<p>{% youtube video.media_id %}</p>
+	{% endfor %}	
 
-	<div class="container">
-  		<div class="page-header">
-  			<h4> {{ talk.title }} </h4>
-  		</div>
-		{% for speaker in talk.speakers.all %}
-			<h5> <a href="{{ speaker.get_absolute_url }}" title="{{ speaker.description|truncatewords:20 }}"> {{ speaker.name }} </a> </h5>
-		{% endfor %}
-		<p>{{ talk.description }}</p>
-
-		{% for video in talk.videos %}
-			<p>{% youtube video.media_id %}</p>
-		{% endfor %}	
-	</div>
 {% endblock content %}

@@ -1,12 +1,10 @@
 {% extends 'layout/main.html' %}
 
 
-{% block content %}
-<div class="container-fluid">
-  <div class="page-header">
-  	<h2>Palestras</h2>
-  </div>
+{% block page_header %} Palestras {% endblock %}
 
+{% block content %}
+  
 	<h3>Manhã</h3>
 	
 	{% for talk in morning_talks %}
@@ -22,5 +20,5 @@
 	{% empty %}
 		<p>Não existem palestras durante a tarde.</p>
 	{% endfor %}
-</div>
+
 {% endblock content %}

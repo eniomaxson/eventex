@@ -41,9 +41,13 @@
 </div>
 {% endblock %}
 
-{% block content %}
+<div class='container'>
+   <div class='page-header'> <h2>{% block page_header %} {% endblock %} </h2> </div>
+   {% block content %}
 
-{% endblock %}
+   {% endblock %}
+</div>
+
 
 
 {% block footer %}
