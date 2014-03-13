@@ -15,7 +15,7 @@ class SpeakerAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('name',)}
 
 class TalkAdmin(admin.ModelAdmin):
-	inlines [MediaInLine]
+	inlines = [MediaInLine]
 
 admin.site.register(Speaker,SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)
