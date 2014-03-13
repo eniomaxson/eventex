@@ -2,7 +2,10 @@
 {% load youtube %}
 
 {% block content %}
-<h4> {{ talk.title }} </h4>
+<div class="container-fluid">
+  <div class="page-header">
+  	<h4> {{ talk.title }} </h4>
+  </div>
 {% for speaker in talk.speakers.all %}
 <h5>
 	<a
@@ -18,5 +21,5 @@
 	<p>{% youtube video.media_id %}</p>
 {% endfor %}
 
-
+</div>
 {% endblock content %}
