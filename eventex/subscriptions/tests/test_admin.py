@@ -10,8 +10,7 @@ class MarkAsPaidTest(TestCase):
         self.model_admin = SubscriptionAdmin(Subscription, admin.site)
 
         # Popula o banco
-        Subscription.objects.create(name='Henrique Bastos', cpf='12345678901',
-                                    email='henrique@bastos.net')
+        Subscription.objects.create(name='Henrique Bastos', cpf='12345678901',email='henrique@bastos.net')
 
     def test_has_action(self):
         """
